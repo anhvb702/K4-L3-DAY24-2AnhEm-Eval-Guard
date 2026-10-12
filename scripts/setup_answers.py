@@ -61,6 +61,11 @@ def build_pipeline():
     if enriched:
         if len(enriched) != len(all_chunks):
             raise ValueError("enrich_chunks must preserve chunk count/order; see doc/PIPELINE_INTERFACE.md")
+        if any(getattr(e, "original_text", original["text"]) != original["text"]
+               or any(e.auto_metadata.get(key, original["metadata"][key]) != original["metadata"][key]
+                      for key in ("source", "parent_id") if key in original["metadata"])
+               for original, e in zip(all_chunks, enriched)):
+            raise ValueError("enrich_chunks changed chunk order or source/parent identity")
         all_chunks = [{"text": e.enriched_text,
                        "metadata": {**original["metadata"], **e.auto_metadata}}
                       for original, e in zip(all_chunks, enriched)]
@@ -103,11 +108,14 @@ def run_query(q: str, search, reranker, top_k: int, client=None) -> tuple[str, l
                     {"role": "user",   "content": f"Context:\n{ctx}\n\nCâu hỏi: {q}"},
                 ],
             )
+            content = resp.choices[0].message.content
+            if not isinstance(content, str) or not content.strip():
+                raise ValueError("Empty generated answer")
             reported_model = getattr(resp, "model", None)
             used_model = reported_model if isinstance(reported_model, str) and reported_model.strip() else GENERATION_MODEL
-            return resp.choices[0].message.content, contexts, "llm", used_model
+            return content, contexts, "llm", used_model
         except Exception as e:
-            print(f"  ⚠️  LLM generation failed: {e}")
+            print(f"  ⚠️  LLM generation failed: {type(e).__name__}; status={getattr(e, 'status_code', None)}")
 
     return (contexts[0] if contexts else "Không tìm thấy thông tin."), contexts, "extractive_fallback", None
 

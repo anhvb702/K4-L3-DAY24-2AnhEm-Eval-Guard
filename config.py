@@ -17,6 +17,7 @@ NAIVE_COLLECTION = "lab24_naive"
 
 # --- Embedding (same as Day 18) ---
 EMBEDDING_MODEL = "BAAI/bge-m3"
+RERANK_MODEL = "BAAI/bge-reranker-v2-m3"
 EMBEDDING_DIM = 1024
 
 # --- Chunking (same as Day 18) ---

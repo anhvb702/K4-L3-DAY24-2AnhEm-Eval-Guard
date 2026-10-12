@@ -82,3 +82,20 @@ def test_weakest_distribution_is_quality_not_size():
             results.append(RagasResult(len(results)+1,dist,"Q","A",["C"],"GT",
                                        value,value,value,value))
     assert cluster_analysis(results)["dominant_failure_distribution"] == "adversarial"
+
+
+@pytest.mark.parametrize("value", [float("nan"), float("inf"), -0.1, 1.1, True])
+def test_ragas_rejects_invalid_metrics(monkeypatch, value):
+    row = dict.fromkeys(("faithfulness", "answer_relevancy", "context_precision", "context_recall"), .5)
+    row["faithfulness"] = value
+    monkeypatch.setitem(sys.modules, "src.m4_eval", SimpleNamespace(
+        evaluate_ragas=lambda *args: {"per_question": [row],
+                                     "metadata": {"evaluator_models": ["actual-evaluator"]}}))
+    with pytest.raises(ValueError):
+        run_ragas_50q([{**load_test_set_50q()[0], "answer": "A", "contexts": ["C"]}])
+
+
+def test_cluster_ignores_empty_distributions(dummy_results):
+    result = cluster_analysis([dummy_results[0]])
+    assert result["distribution_avg_scores"] == {"factual": dummy_results[0].avg_score}
+    assert result["dominant_failure_distribution"] == "factual"
