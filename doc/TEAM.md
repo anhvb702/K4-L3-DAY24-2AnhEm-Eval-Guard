@@ -46,7 +46,7 @@ Models/Qdrant/50 answers đã chuẩn bị: Qdrant v1.9.7 truy cập được; B
 - Bằng chứng: `src/phase_b_judge.py`, `artifacts/judge_results.json`, `doc/reports/bias_report.md`; commit Phase B `4ffef73`.
 - Kết quả/giới hạn: Cohen’s κ = 0.8 trên 10 nhãn; pairwise có 5 cặp, một cặp không nhất quán. Báo cáo đã nêu cỡ mẫu nhỏ và giới hạn của kết luận bias.
 
-### PhamAnhMinh-2A202603009
+### Phạm Anh Minh-2A202603009
 
 - Phần được giao và phần thực tế đã làm: phụ trách Phase C; hoàn thiện guard input/output, Presidio PII handling, NeMo policy, latency measurement và blueprint; kiểm tra logic offline và chạy batch Phase C thật.
 - Bằng chứng: `src/phase_c_guard.py`, `guardrails/config.yml`, `tests/test_phase_c.py`, `artifacts/guard_results.json`, `doc/reports/blueprint.md`.

@@ -2,7 +2,8 @@
 
 Nhóm: 3ChangLinhNguLam
 
-Người phụ trách: Nhóm thực hiện; Phase C chạy trên môi trường Windows/Python 3.11.
+Người phụ trách Phase C: Phạm Anh Minh — 2A202603009.
+Môi trường chạy: Windows, Python 3.11.
 
 Đây là **đề xuất CI/CD**, không phải workflow đã được triển khai/chạy.
 Nguồn kết quả: `artifacts/ragas_50q.json`, `artifacts/judge_results.json` và
