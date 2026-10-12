@@ -6,7 +6,7 @@ Repo chung: https://github.com/anhvb702/K4-L3-DAY24-3ChangLinhNguLam-Eval-Guard
 
 Trưởng nhóm/người nộp: Vũ Bá Anh — 2A202602893
 
-Ngày lab/deadline áp dụng: Deadline áp dụng theo xác nhận trưởng nhóm: 23:59 ngày 12/10/2026 — Asia/Ho_Chi_Minh (UTC+07:00)
+Ngày lab/deadline áp dụng: Deadline theo xác nhận coach: 11:59 AM ngày 13/10/2026 — Asia/Ho_Chi_Minh (UTC+07:00)
 
 Commit bằng chứng kỹ thuật Phase A: 270296ab585c57523f531c82fe2b5126eec0fd90 (đã push phase-A). Commit nộp cuối toàn nhóm sẽ được trưởng nhóm xác nhận khi hoàn thiện bài chung.
 
@@ -55,8 +55,7 @@ Models/Qdrant/50 answers đã chuẩn bị: Qdrant v1.9.7 truy cập được; B
 
 ## Cập nhật sau khi nộp
 
-Ngày 13/10/2026, repo được cập nhật sau deadline đã ghi nhận là 23:59 ngày
-12/10/2026 để hoàn thiện Phase C, lưu kết quả batch thật và hoàn thiện blueprint.
-Việc sử dụng bản cập nhật sau deadline cần được coach xác nhận; xác nhận hiện
-chưa được ghi nhận trong repo. Commit dùng để chấm cần trưởng nhóm xác nhận khi
-đã push bản cuối.
+Phase C và artifacts được hoàn thiện trước deadline coach xác nhận là 11:59 AM
+ngày 13/10/2026. Commit chứa bộ source/evidence Phase C:
+`fe12754e84e79aa8b2e6d3df302b47016099b4e6`; commit tiếp theo cập nhật deadline
+đã xác nhận trong TEAM.md.
