@@ -8,7 +8,7 @@ Trưởng nhóm/người nộp: Vũ Bá Anh — 2A202602893
 
 Ngày lab/deadline áp dụng: Deadline áp dụng theo xác nhận trưởng nhóm: 23:59 ngày 12/10/2026 — Asia/Ho_Chi_Minh (UTC+07:00)
 
-Commit dùng để chấm: chưa chốt; sẽ ghi SHA sau khi kiểm tra và commit phần Phase A.
+Commit bằng chứng kỹ thuật Phase A: 270296ab585c57523f531c82fe2b5126eec0fd90 (đã push phase-A). Commit nộp cuối toàn nhóm sẽ được trưởng nhóm xác nhận khi hoàn thiện bài chung.
 
 Mỗi nhóm nộp một repo. Điền đủ thành viên và một mục INDIVIDUAL cho từng người.
 Thêm/xóa rows để khớp nhóm thật; mẫu ba rows không ép nhóm phải có ba người.
@@ -21,7 +21,7 @@ Thêm/xóa rows để khớp nhóm thật; mẫu ba rows không ép nhóm phải
 | 2 | {{Họ tên}} | {{MSSV}} | {{Phase/file/hàm}} | {{Commit/PR/report}} |
 | 3 | {{Họ tên}} | {{MSSV}} | {{Phase/file/hàm}} | {{Commit/PR/report}} |
 
-Người tích hợp/chạy batch/nộp link: Vũ Bá Anh. Đã chạy setup và batch Phase A bằng PowerShell; artifacts và báo cáo là bằng chứng. Commit/push và nộp link chưa được xác nhận hoàn thành.
+Người tích hợp/chạy batch/nộp link: Vũ Bá Anh. Đã chạy setup và batch Phase A bằng PowerShell; artifacts và báo cáo là bằng chứng. Đã commit/push phần Phase A lên nhánh phase-A tại 270296ab585c57523f531c82fe2b5126eec0fd90; merge main và nộp link chưa được xác nhận hoàn thành.
 
 ## Môi trường và chuẩn bị trước lớp
 
@@ -38,7 +38,7 @@ Sao chép mẫu cho mỗi thành viên; tiêu đề họ tên không dấu-MSSV.
 ### VuBaAnh-2A202602893
 
 - Phần được giao và phần thực tế đã làm: phụ trách Phase A; chuẩn bị/tích hợp m1–m5, sửa tương thích môi trường, chạy pipeline sinh 50 answers, chạy RAGAS thật và kiểm chứng Tasks 1–4 do Codex hỗ trợ implement. Codex hỗ trợ viết phân tích lỗi từ artifact; trưởng nhóm chịu trách nhiệm kiểm tra nội dung trước khi nộp.
-- Bằng chứng: artifacts/answers_50q.json, artifacts/ragas_50q.json (created_at 2026-10-12T09:52:02.327394+00:00), src/phase_a_ragas.py, tests/test_phase_a.py, tests/test_cp0_interface.py, doc/reports/failure_clusters.md và output terminal. Commit SHA chưa chốt.
+- Bằng chứng: artifacts/answers_50q.json, artifacts/ragas_50q.json (created_at 2026-10-12T09:52:02.327394+00:00), src/phase_a_ragas.py, tests/test_phase_a.py, tests/test_cp0_interface.py, doc/reports/failure_clusters.md và output terminal. Commit bằng chứng Phase A: 270296ab585c57523f531c82fe2b5126eec0fd90 (đã push phase-A).
 - Cách kiểm tra: chạy support tests (75 passed); tests Phase A/CP0 interface (27 passed); setup_answers.py --live tạo 50 answers; validate_answers đạt schema/nguồn; run_experiments.py --phase a --live chạy 200/200 metric và lưu JSON. Kiểm tra cuối validate_phase_a/validate_metadata đạt theo output PowerShell; git diff --check không có lỗi whitespace.
 - Điều đã học: matrix worst_metric đếm mọi câu, nhóm yếu phải chọn bằng mean (multi_hop 0.638094); retrieval phù hợp chưa chắc đủ coverage; score faithfulness cao không đảm bảo số liệu đúng và score thấp cần đối chiếu answer/contexts/reference.
 - Giới hạn/cách xử lý: 2 generation timeout giữ đúng extractive_fallback; 2 PDF scan thiếu text layer chưa OCR; enrichment có 1 fallback; chưa làm Phase B/C hoặc calibration/guard/latency. Giữ nguyên dữ liệu và số đo thật, ghi giới hạn trong báo cáo.
