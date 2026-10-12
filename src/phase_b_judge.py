@@ -87,7 +87,6 @@ def pairwise_judge(question: str, answer_a: str, answer_b: str, reference: str =
     client = OpenAI()
     resp = client.chat.completions.create(
         model=JUDGE_MODEL,
-        temperature=0,
         messages=[
             {"role": "system", "content": "Bạn là expert đánh giá RAG. Chỉ trả lời JSON."},
             {"role": "user", "content": PAIRWISE_PROMPT.format(

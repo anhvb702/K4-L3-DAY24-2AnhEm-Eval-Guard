@@ -111,7 +111,7 @@ def judge_binary(question, answer, reference, *, client=None):
         from openai import OpenAI
         client = OpenAI()
     response = client.chat.completions.create(
-        model=JUDGE_MODEL, temperature=0,
+        model=JUDGE_MODEL,
         response_format={"type": "json_object"},
         messages=[
             {"role": "system", "content": BINARY_SYSTEM_PROMPT},
