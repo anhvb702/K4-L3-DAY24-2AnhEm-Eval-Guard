@@ -65,8 +65,8 @@ nằm ở ranh giới giữa "substantial" và "almost perfect" theo thang Landi
 
 Judge và human chỉ lệch ở id 12. Câu hỏi đã nêu sẵn điều kiện "nhân viên chính thức có từ 6 tháng
 trở lên", nên câu trả lời "tối thiểu 1 tháng lương" vẫn đủ ý thiết yếu và judge đã quá khắt khe khi
-trừ điểm vì không nhắc lại điều kiện. Điều này cũng khớp với ghi chú của con người (`human_note`: "Đúng và súc tích."),
-cho thấy người đánh giá ưu tiên việc trả lời trực diện con số mà không cần lặp lại điều kiện đã nêu trong câu hỏi.
+trừ điểm vì không nhắc lại điều kiện. Điều này khớp với ghi chú của human (`human_note`: "Đúng và súc tích."),
+tức là human coi câu trả lời ngắn vẫn đủ ý.
 Judge cũng không nhất quán về mức khắt khe: ở id 1 nó chấp nhận câu trả lời thiếu chi tiết "không trừ vào phép năm"
 vì coi là thông tin bổ sung.
 
